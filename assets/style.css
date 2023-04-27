@@ -1,3 +1,24 @@
+#header{
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    height: 175px;
+    width: 100%;
+}
+#trivia-header{
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    position: relative;
+    left: 450px;
+    bottom: 50px;
+}
+#high-scores-nav{
+    position: relative;
+    left: 80%;
+    bottom: 200px;
+    font-size: 50px;
+}
 #main-box{
     border-style: solid;
     border-radius: 10px;
