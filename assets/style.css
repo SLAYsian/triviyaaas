@@ -1,3 +1,38 @@
-#trivia-header{
-    font-size: 100px;
+#main-box{
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    display: inline-block;
+    padding: 20px;
+    height: 300px;
+    width: 500px;
+    background-color: blue;
+    position: relative;
+    left: 500px;
+}
+#difficulty-text{
+    font-size: 50px;
+    position: relative;
+    bottom: 30px;
+    left: 200px;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+}
+#easy-btn{
+    background-color: green;
+    position: relative;
+    left: 260px;
+    bottom: 100px;
+}
+#medium-btn{
+    background-color: gold;
+    position: relative;
+    left: 260px;
+    bottom: 100px;
+}
+#hard-btn{
+    background-color: red;
+    position: relative;
+    left: 260px;
+    bottom: 100px;
 }
