@@ -6,7 +6,7 @@
     padding: 20px;
     height: 300px;
     width: 500px;
-    background-color: blue;
+    background-color: whitesmoke;
     position: relative;
     left: 500px;
 }
@@ -21,18 +21,39 @@
 #easy-btn{
     background-color: green;
     position: relative;
-    left: 260px;
+    left: 225px;
     bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#easy-text{
+    font-size: 15px;
 }
 #medium-btn{
     background-color: gold;
     position: relative;
-    left: 260px;
+    left: 225px;
     bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#medium-text{
+    font-size: 15px;
 }
 #hard-btn{
     background-color: red;
     position: relative;
-    left: 260px;
+    left: 225px;
     bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#hard-text{
+    font-size: 15px;
 }
