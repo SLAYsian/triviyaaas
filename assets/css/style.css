@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --neonyellow: #cfff00;
+  --neonpink: #ff0099;
+  --neonpurp: #b300f1;
+  --neonturq: #00f1dc;
+  --neongreen: #0cf100;
+  --neonocoral: #ee7752;
+}
+
+/* SOURCE: Maniel Pinto Codepen https://codepen.io/P1N2O/pen/pyBNzX */
+.gradient-background {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#trivia-header {
+  font-size: 100px;
+}
+
+.hidden {
+  display: none;
+}
