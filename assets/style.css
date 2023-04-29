@@ -1,0 +1,80 @@
+#header{
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    height: 175px;
+    width: 100%;
+}
+#trivia-header{
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    position: relative;
+    left: 450px;
+    bottom: 50px;
+}
+#high-scores-nav{
+    position: relative;
+    left: 80%;
+    bottom: 200px;
+    font-size: 50px;
+}
+#main-box{
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    display: inline-block;
+    padding: 20px;
+    height: 300px;
+    width: 500px;
+    background-color: whitesmoke;
+    position: relative;
+    left: 500px;
+}
+#difficulty-text{
+    font-size: 50px;
+    position: relative;
+    bottom: 30px;
+    left: 200px;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+}
+#easy-btn{
+    background-color: green;
+    position: relative;
+    left: 225px;
+    bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#easy-text{
+    font-size: 15px;
+}
+#medium-btn{
+    background-color: gold;
+    position: relative;
+    left: 225px;
+    bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#medium-text{
+    font-size: 15px;
+}
+#hard-btn{
+    background-color: red;
+    position: relative;
+    left: 225px;
+    bottom: 100px;
+    height: 50px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#hard-text{
+    font-size: 15px;
+}

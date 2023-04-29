@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <title>Trivia</title>
+    <title>Trivia Arcade</title>
   </head>
   <body>
     <header>
@@ -17,22 +17,27 @@
       </nav>
     </header>
     <main>
-      <section>
-        <h3>
-          Random fact of the day <span id="random-fact">Random fact</span>
-        </h3>
-        <div>
-          <div id="box"></div>
-          <div>
-            <h5>Difficulty</h5>
+        <section>
             <div>
-              <button id="easy-btn">easy</button>
-              <button id="medium-btn">medium</button>
-              <button id="hard-btn">hard</button>
+                
+                <div id="main-box">
+                    <div id="form-name">
+                        <form action="#">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name-input">
+                            <input type="submit" value="submit" id="name-submit">
+                        </form>
+                    </div>
+                    <h5 id="difficulty-text">Difficulty</h5>
+                    <p id="description"></p>
+                    <div>
+                        <button id="easy-btn">Easy <br> <span id="easy-text">1 point</span></button>
+                        <button id="medium-btn">Medium <br> <span id="medium-text">2 points</span></button>
+                        <button id="hard-btn">Hard <br> <span id="hard-text">3 points</span></button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
   </body>
 </html>
