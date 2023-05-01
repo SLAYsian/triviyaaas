@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
     <title>Trivia Arcade</title>
   </head>
   <body>
-    <header>
-      <img src="https://placeholder/circle" alt="No image available" />
-      <h1>Trivia</h1>
-      <nav>
+    <header id="header">
+      <img src="https://placeholder/circle" alt="No image available"/>
+      <h1 id="trivia-header">Trivia</h1>
+      <nav id="high-scores-nav">
         <a href="#">New Game</a>
         <a href="#">High Scores</a>
       </nav>
@@ -21,13 +21,11 @@
             <div>
                 
                 <div id="main-box">
-                    <div id="form-name">
-                        <form action="#">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name-input">
-                            <input type="submit" value="submit" id="name-submit">
-                        </form>
-                    </div>
+                    <form id="name-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name-input"/>
+                        <button id="name-submit">Submit</button>
+                    </form>
                     <h5 id="difficulty-text">Difficulty</h5>
                     <p id="description"></p>
                     <div>
