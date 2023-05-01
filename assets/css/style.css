@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
   --neonyellow: #cfff00;
   --neonpink: #ff0099;
@@ -17,7 +16,6 @@
   --font-space-mono: "Space Mono", monospace;
   --font-bungee-hairline: "Bungee Hairline", cursive;
 }
-
 /* SOURCE: Maniel Pinto Codepen https://codepen.io/P1N2O/pen/pyBNzX */
 .gradient-background {
   background: linear-gradient(
@@ -28,12 +26,10 @@
     var(--neonpurp)
   );
   /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
 }
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -44,16 +40,90 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-#trivia-header {
-  font-size: 100px;
-}
-
-.hidden {
+} 
+ .hidden {
   display: none;
 }
-
+#header{
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  height: 175px;
+  width: 100%;
+}
+#trivia-header{
+  font-size: 100px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+  position: relative;
+  left: 450px;
+  bottom: 50px;
+}
+#high-scores-nav{
+  position: relative;
+  left: 80%;
+  bottom: 200px;
+  font-size: 50px;
+}
+#main-box{
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  display: inline-block;
+  padding: 20px;
+  height: 300px;
+  width: 500px;
+  background-color: whitesmoke;
+  position: relative;
+  left: 500px;
+}
+#difficulty-text{
+  font-size: 50px;
+  position: relative;
+  bottom: 30px;
+  left: 200px;
+  text-decoration: underline;
+  font-family: 'Courier New', Courier, monospace;
+}
+#easy-btn{
+  background-color: green;
+  position: relative;
+  left: 225px;
+  bottom: 100px;
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+#easy-text{
+  font-size: 15px;
+}
+#medium-btn{
+  background-color: gold;
+  position: relative;
+  left: 225px;
+  bottom: 100px;
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+#medium-text{
+  font-size: 15px;
+}
+#hard-btn{
+  background-color: red;
+  position: relative;
+  left: 225px;
+  bottom: 100px;
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+#hard-text{
+  font-size: 15px;
+}
 /* SECTION: Questions Pages*/
 .trivia-header {
   font-family: var(--font-bungee-shade);
@@ -66,11 +136,9 @@
   flex-wrap: wrap;
   padding: 15px;
 }
-
 .trivia-body {
   position: relative;
 }
-
 /* .trivia-grid {
   height: 50vh;
   display: grid;
@@ -78,7 +146,6 @@
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
 } */
-
 .question-container {
   height: 50vh;
   width: 75vh;
@@ -87,7 +154,6 @@
   justify-content: space-evenly;
   margin-left: 3rem;
 }
-
 .trivia-modal {
   position: absolute;
   top: 50%;
@@ -111,7 +177,6 @@
   border: none;
   background: none;
 }
-
 .overlay {
   position: absolute;
   top: 0;
@@ -122,7 +187,6 @@
   backdrop-filter: blur(3px);
   z-index: 5;
 }
-
 .question-title {
   font-family: var(--font-monoton);
   color: white;
