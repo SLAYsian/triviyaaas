@@ -14,13 +14,12 @@ let coseModalBtn = document.querySelector(".close-modal");
 function fetchTriviaQuestions() {
   fetch(`https://opentdb.com/api.php?amount=10&difficulty=easy`).then(function (
     response
-  ) // fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function (
-  //   response
-  // )
+  ) // NOTES: Will use this one once code is written in index // fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
+
   {
     if (response.ok) {
       response.json().then(function (data) {
-        // NOTES: function displayTriviaQuestions
+        // NOTES: Will use once written -> function displayTriviaQuestions
         console.log(data);
       });
     } else {
@@ -32,6 +31,11 @@ function fetchTriviaQuestions() {
 fetchTriviaQuestions();
 
 // SECTION: FUNCTION Display Trivia Questions
+let currentQuestionIndex = 0;
+let questions = [];
+
+function displayTriviaQuestions(quizData) {}
+function displayQuestion() {}
 
 // SECTION: EVENT HANDLER BUTTON
 
