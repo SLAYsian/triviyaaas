@@ -11,11 +11,24 @@
   --neonturq: #00f1dc;
   --neongreen: #0cf100;
   --neonocoral: #ee7752;
+  --font-press-start: "Press Start 2P", cursive;
+  --font-bungee-shade: "Bungee Shade", cursive;
+  --font-monoton: "Monoton", cursive;
+  --font-space-mono: "Space Mono", monospace;
+  --font-bungee-hairline: "Bungee Hairline", cursive;
 }
 
 /* SOURCE: Maniel Pinto Codepen https://codepen.io/P1N2O/pen/pyBNzX */
 .gradient-background {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(
+    -45deg,
+    var(--neonyellow),
+    var(--neonturq),
+    var(--neonpink),
+    var(--neonpurp)
+  );
+  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
@@ -39,4 +52,89 @@
 
 .hidden {
   display: none;
+}
+
+/* SECTION: Questions Pages*/
+.trivia-header {
+  font-family: var(--font-bungee-shade);
+  font-size: 2em;
+  padding-left: 2rem;
+  background-color: black;
+  color: var(--neonyellow);
+  opacity: 0.8;
+  font-display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+.trivia-body {
+  position: relative;
+}
+
+/* .trivia-grid {
+  height: 50vh;
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+} */
+
+.question-container {
+  height: 50vh;
+  width: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 3rem;
+}
+
+.trivia-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.question-title {
+  font-family: var(--font-monoton);
+  color: white;
+  font-size: 2rem;
+}
+.answers-buttons {
+  /* grid-area: 2/2/-1/-1; */
+  display: flex;
+  flex-direction: column;
+}
+.answer {
+  padding: 1rem;
+  font-family: var(--font-press-start);
+  margin: 1em;
 }
