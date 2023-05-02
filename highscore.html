@@ -10,39 +10,34 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Bruno+Ace&family=Bungee+Hairline&family=Bungee+Shade&family=DotGothic16&family=Khand:wght@300;400&family=Macondo&family=Monoton&family=Nanum+Gothic+Coding&family=Press+Start+2P&family=Quantico&family=Space+Mono&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Trivia</title>
 </head>
+
 <body class="trivia-body">
-    <header>
-        <img src="https://placeholder/circle" alt="No image available">
-        <h1>Trivia Arcade</h1>
+    <header class="trivia-header">
+        <h1>
+            <img src="./assets/images/tetris-icon.svg" height="60" alt="tetris logo" />
+        </a>
+
+        Trivia Arcade
+        </h1>
+        <p class="high-score">High Scores </p>
+    </header>
+    <hr/>
         <nav>
             <a href="#">Home Page</a>
         </nav>
     </header>
-    <main>
-        <section>            
-                <h2>High Scores</h2>                    
-                    <div class="easy-scores">
-                        <h3 id="easy">Easy</h3>
-                            <ul>
+    <main class="gradient-background">
+        <section class="highscore-container">            
                                 
-                            </ul>
-                    </div>
-                    <div class="medium-scores">
-                        <h3 id="medium">Medium</h3>
-                            <ul>
-                                
-                            </ul>
-                    </div>
-                    <div class="hard-scores">
-                        <h3 id="hard">Hard</h3>
-                            <ul>
-                                
-                            </ul>
-                    </div>
-            </div>
+                <h3 id="easy">Easy Scores:</h3>
+                    <div class="easy-scores"></div>
+                <h3 id="medium">Medium Scores:</h3>
+                    <div class="medium-scores"></div>
+                <h3 id="hard">Hard Scores:</h3>
+                    <div class="hard-scores"></div>            
         </section>
     </main>
     <script
