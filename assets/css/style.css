@@ -40,7 +40,7 @@
   100% {
     background-position: 0% 50%;
   }
-}
+
 .hidden {
   display: none;
 }
@@ -49,25 +49,34 @@
   border-color: black;
   border-radius: 10px;
   height: 175px;
-  width: 100%;
+  position: relative;
+  left: 1%;
+  top: 10px;
+  width: 98%;
 }
 #trivia-header {
   font-size: 100px;
   font-family: "Courier New", Courier, monospace;
   font-style: oblique;
-  position: relative;
-  left: 450px;
-  bottom: 50px;
+  position: fixed;
+  left: 30%;
+  top: 50px;
 }
 #high-scores-nav {
   position: relative;
-  left: 80%;
-  bottom: 200px;
+  left: 60%;
+  bottom: 75px;
   font-size: 50px;
+  list-style:armenian;
+}
+a{
+  text-decoration: none;
+  color: red;
+  margin-left: 25px;
 }
 #main-box {
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 25px;
   border-color: black;
   display: inline-block;
   padding: 20px;
@@ -75,21 +84,30 @@
   width: 500px;
   background-color: whitesmoke;
   position: relative;
-  left: 500px;
+  left: 30%;
+  top: 100px;
+}
+#name-input{
+  height: 25px;
+  width: 200px;
+}
+#name-submit{
+  height: 30px;
+  width: 50px;
 }
 #difficulty-text {
   font-size: 50px;
   position: relative;
-  bottom: 30px;
-  left: 200px;
+  top: 50px;
+  left: 150px;
   text-decoration: underline;
   font-family: "Courier New", Courier, monospace;
 }
 #easy-btn {
   background-color: green;
   position: relative;
-  left: 225px;
-  bottom: 100px;
+  left: 175px;
+  top: 75px;
   height: 50px;
   width: 80px;
   border-radius: 5px;
@@ -101,8 +119,8 @@
 #medium-btn {
   background-color: gold;
   position: relative;
-  left: 225px;
-  bottom: 100px;
+  left: 175px;
+  top: 75px;
   height: 50px;
   width: 80px;
   border-radius: 5px;
@@ -114,8 +132,8 @@
 #hard-btn {
   background-color: red;
   position: relative;
-  left: 225px;
-  bottom: 100px;
+  left: 175px;
+  top: 75px;
   height: 50px;
   width: 80px;
   border-radius: 5px;
