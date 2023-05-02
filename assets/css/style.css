@@ -192,6 +192,11 @@
   color: white;
   font-size: 2rem;
 }
+#easy, #medium, #hard {
+  font-family: var(--font-monoton);
+  color: white;
+  font-size: 2rem;
+}
 .answers-buttons {
   /* grid-area: 2/2/-1/-1; */
   display: flex;
