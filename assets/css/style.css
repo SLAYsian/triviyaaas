@@ -40,12 +40,11 @@
   100% {
     background-position: 0% 50%;
   }
-} 
-/* homepage */
- .hidden {
+
+.hidden {
   display: none;
 }
-#header{
+#header {
   border-style: solid;
   border-color: black;
   border-radius: 10px;
@@ -55,15 +54,15 @@
   top: 10px;
   width: 98%;
 }
-#trivia-header{
+#trivia-header {
   font-size: 100px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-style: oblique;
   position: fixed;
   left: 30%;
   top: 50px;
 }
-#high-scores-nav{
+#high-scores-nav {
   position: relative;
   left: 60%;
   bottom: 75px;
@@ -75,7 +74,7 @@ a{
   color: red;
   margin-left: 25px;
 }
-#main-box{
+#main-box {
   border-style: solid;
   border-radius: 25px;
   border-color: black;
@@ -96,15 +95,15 @@ a{
   height: 30px;
   width: 50px;
 }
-#difficulty-text{
+#difficulty-text {
   font-size: 50px;
   position: relative;
   top: 50px;
   left: 150px;
   text-decoration: underline;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
-#easy-btn{
+#easy-btn {
   background-color: green;
   position: relative;
   left: 175px;
@@ -114,10 +113,10 @@ a{
   border-radius: 5px;
   font-size: 17px;
 }
-#easy-text{
+#easy-text {
   font-size: 15px;
 }
-#medium-btn{
+#medium-btn {
   background-color: gold;
   position: relative;
   left: 175px;
@@ -127,10 +126,10 @@ a{
   border-radius: 5px;
   font-size: 17px;
 }
-#medium-text{
+#medium-text {
   font-size: 15px;
 }
-#hard-btn{
+#hard-btn {
   background-color: red;
   position: relative;
   left: 175px;
@@ -140,7 +139,7 @@ a{
   border-radius: 5px;
   font-size: 17px;
 }
-#hard-text{
+#hard-text {
   font-size: 15px;
 }
 /* SECTION: Questions Pages*/
@@ -155,16 +154,15 @@ a{
   flex-wrap: wrap;
   padding: 15px;
 }
+.trivia-main-body {
+}
+
 .trivia-body {
   position: relative;
+  background-image: url("./assets/images/senad-palic-tron-unsplash.jpg");
+  background-size: cover;
 }
-/* .trivia-grid {
-  height: 50vh;
-  display: grid;
-  gap: 0.5em;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
-} */
+
 .question-container {
   height: 50vh;
   width: 75vh;
@@ -172,6 +170,11 @@ a{
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 3rem;
+}
+
+.questioni {
+  font-family: var(--font-space-mono);
+  font-size: ;
 }
 .trivia-modal {
   position: absolute;
@@ -216,7 +219,7 @@ a{
   display: flex;
   flex-direction: column;
 }
-.answer {
+.answers {
   padding: 1rem;
   font-family: var(--font-press-start);
   margin: 1em;
