@@ -11,11 +11,16 @@ let modalImg = document.querySelector(".modal-img");
 let overlayEl = document.querySelector(".overlay");
 let closeModalBtn = document.querySelector(".close-modal");
 
+let currentQuestionIndex = 0;
+let questions = [];
+let currentScore = 0;
+gameScoreEl.textContent = `SCORE: ${currentScore}`;
+
 // SECTION: FETCH TRIVIA QUESTIONS
 
 function fetchTriviaQuestions() {
   fetch(`https://opentdb.com/api.php?amount=10&difficulty=easy`).then(function (
-    response // NOTES: Will use this one once code is written in index // fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
+    response // NOTES: Will use this one once code is written in index // function fetchTriviaQuestions(difficulty) { fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
   ) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -30,12 +35,13 @@ function fetchTriviaQuestions() {
 
 fetchTriviaQuestions();
 
-// SECTION: FUNCTION Difficulty
+// SECTION: Difficulty selected from local storage
+// NOTES: Wait until homepage code is written
+// let selectedDifficulty = localStorage.getItem("variable")
+// fetchTriviaQuestions(variable)
 
 // SECTION: FUNCTION Display Trivia Questions
 // TODO: Special characters not displaying
-let currentQuestionIndex = 0;
-let questions = [];
 
 function displayTriviaQuestions(triviaData) {
   questions = triviaData;
@@ -45,13 +51,14 @@ function displayTriviaQuestions(triviaData) {
 function displayQuestion() {
   let question = questions[currentQuestionIndex];
   questionEl.textContent = question.question;
-
+  // NOTES: Create a new array combining correct and incorrect answers
   let answers = [...question.incorrect_answers, question.correct_answer];
+  answers = shuffleAnswers(answers);
 
   answerBtnsEl.forEach((button, index) => {
-    // TODO: Account for Boolean
     button.textContent = answers[index];
     button.dataset.correct = answers[index] === question.correct_answer;
+    // NOTES: Account for Boolean
     if (
       question.type === "boolean" &&
       (button.classList.contains("answer-2") ||
@@ -62,6 +69,21 @@ function displayQuestion() {
       button.classList.remove("hidden");
     }
   });
+}
+
+// SECTION: FUNCTION Randomize answers
+function shuffleAnswers(answers) {
+  let answerIndex = answers.length,
+    randomIndex;
+  while (answerIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * answerIndex);
+    answerIndex--;
+    [answers[answerIndex], answers[randomIndex]] = [
+      answers[randomIndex],
+      answers[answerIndex],
+    ];
+  }
+  return answers;
 }
 
 // SECTION: EVENT HANDLER BUTTON Correct Answer
@@ -81,6 +103,11 @@ function handleAnswer(correctAnswer) {
     // TODO: ADD IMAGE
     modalImg.src = "";
     correctAnswerEl.textContent = "";
+    // TODO: Fix once script.js is updated
+    // let points = calcPoints(selectedDifficulty);
+    let points = calcPoints("easy");
+    currentScore += points;
+    gameScoreEl.textContent = `SCORE: ${currentScore}`;
   } else {
     correctOrIncorrectEl.textContent = "INCORRECT!";
     correctAnswerEl.textContent = `Correct Answer: ${thisCorrectAnswer}`;
@@ -98,7 +125,17 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 // SECTION: ADD SCORE
-function addScore() {}
+function calcPoints(difficulty) {
+  if (difficulty === "easy") {
+    return 5;
+  } else if (difficulty === "medium") {
+    return 10;
+  } else if (difficulty === "hard") {
+    return 15;
+  } else {
+    return 0;
+  }
+}
 
 // SECTION: DISPLAY NEXT QUESTION
 function nextQuestion() {
