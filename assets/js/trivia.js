@@ -52,6 +52,15 @@ function displayQuestion() {
     // TODO: Account for Boolean
     button.textContent = answers[index];
     button.dataset.correct = answers[index] === question.correct_answer;
+    if (
+      question.type === "boolean" &&
+      (button.classList.contains("answer-2") ||
+        button.classList.contains("answer-3"))
+    ) {
+      button.classList.add("hidden");
+    } else {
+      button.classList.remove("hidden");
+    }
   });
 }
 
@@ -95,7 +104,7 @@ function addScore() {}
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
-    showQuestion();
+    displayQuestion();
   } else {
     // TODO: Replace with endQuiz function
     return;
