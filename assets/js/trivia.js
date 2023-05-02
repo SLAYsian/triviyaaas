@@ -33,7 +33,7 @@ fetchTriviaQuestions();
 // SECTION: FUNCTION Difficulty
 
 // SECTION: FUNCTION Display Trivia Questions
-// FIX: Special characters not displaying
+// TODO: Special characters not displaying
 let currentQuestionIndex = 0;
 let questions = [];
 
@@ -49,6 +49,7 @@ function displayQuestion() {
   let answers = [...question.incorrect_answers, question.correct_answer];
 
   answerBtnsEl.forEach((button, index) => {
+    // TODO: Account for Boolean
     button.textContent = answers[index];
     button.dataset.correct = answers[index] === question.correct_answer;
   });
@@ -68,21 +69,38 @@ function handleAnswer(correctAnswer) {
   let thisCorrectAnswer = question.correct_answer;
   if (correctAnswer) {
     correctOrIncorrectEl.textContent = "CORRECT!";
+    // TODO: ADD IMAGE
     modalImg.src = "";
     correctAnswerEl.textContent = "";
   } else {
     correctOrIncorrectEl.textContent = "INCORRECT!";
     correctAnswerEl.textContent = `Correct Answer: ${thisCorrectAnswer}`;
+    // TODO: ADD IMAGE
+    modalImg.src = "";
   }
   modalEl.classList.remove("hidden");
   overlayEl.classList.remove("hidden");
 }
 
+closeModalBtn.addEventListener("click", () => {
+  modalEl.classList.add("hidden");
+  overlayEl.classList.add("hidden");
+  nextQuestion();
+});
+
 // SECTION: ADD SCORE
 function addScore() {}
 
 // SECTION: DISPLAY NEXT QUESTION
-function nextQuestion() {}
+function nextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    // TODO: Replace with endQuiz function
+    return;
+  }
+}
 
 // SECTION: END OF QUIZ
 function endQuiz() {}
