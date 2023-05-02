@@ -19,40 +19,35 @@
     <!-- SECTION: Header with site name & score -->
     <header class="trivia-header">
       <h1>
-        <!-- <a href="https://www.flaticon.com/free-icons/sports-and-competition" title="sports and competition icons">Sports and competition icons created by afif fudin - Flaticon</a> -->
-          <img src="./assets/images/tetris-icon.svg" height="60" alt="tetris logo" />
-        </a>
-
+        <img
+          src="./assets/images/tetris-icon.svg"
+          height="60"
+          alt="tetris logo"
+        />
         Trivia Arcade
       </h1>
-      <p class="game-score">SCORE: </p>
+      <p class="game-score">SCORE:</p>
     </header>
     <hr />
     <!-- SECTION: Main with Questions -->
-    <main class="gradient-background ">
+    <main class="trivia-main-body gradient-background">
       <section class="question-container trivia-main">
         <h2 class="question-title">Question</h2>
         <p class="questioni"></p>
         <div class="answers-buttons">
-          <button class="answer answer-0" type="button">answer 1</button>
-          <button class="answer answer-1" type="button">answer 2</button>
-          <button class="answer answer-2" type="button">answer 3</button>
-          <button class="answer answer-3" type="button">answer 4</button>
+          <button class="answers answer-0" type="button">answer 1</button>
+          <button class="answers answer-1" type="button">answer 2</button>
+          <button class="answers answer-2" type="button">answer 3</button>
+          <button class="answers answer-3" type="button">answer 4</button>
         </div>
         <div class="trivia-modal hidden">
           <button class="close-modal">&times;</button>
           <h3 class="correct-incorrect"></h3>
-          <img class="modal-img"/>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <img class="modal-img" />
+          <p class="correct-answer"></p>
         </div>
         <div class="overlay hidden"></div>
       </section>
-    
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
