@@ -59,11 +59,13 @@
   font-size: 100px;
   font-family: 'Courier New', Courier, monospace;
   font-style: oblique;
-  text-align: center;
+  position: fixed;
+  left: 30%;
+  top: 50px;
 }
 #high-scores-nav{
   position: relative;
-  left: 70%;
+  left: 60%;
   bottom: 75px;
   font-size: 50px;
   list-style:armenian;
