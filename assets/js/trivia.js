@@ -10,6 +10,11 @@ let correctAnswerEl = document.querySelector(".correct-answer");
 let modalImg = document.querySelector(".modal-img");
 let overlayEl = document.querySelector(".overlay");
 let closeModalBtn = document.querySelector(".close-modal");
+let questionTitleEl = document.querySelector(".question-title");
+
+// TODO: Check variables with homepage
+let difficulty = localStorage.getItem("triviaDifficulty") || "easy";
+let userName = localStorage.getItem("triviaUserName") || "";
 
 let currentQuestionIndex = 0;
 let questions = [];
@@ -143,13 +148,45 @@ function nextQuestion() {
   if (currentQuestionIndex < questions.length) {
     displayQuestion();
   } else {
-    // TODO: Replace with endQuiz function
-    return;
+    // NOTES: Replace with endQuiz function
+    endQuiz();
   }
 }
 
 // SECTION: END OF QUIZ
-function endQuiz() {}
+// TODO: variables
+function endQuiz() {
+  // NOTES: Get high scores from local storage or start a new array
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  // NOTES: Lowest high score
+  let lowestHighScore =
+    highScores.length < 10 ? 0 : highScores[highScores.length - 1].score;
+  // NOTES: Check if score is a new high score and display message
+  let isNewHighScore = currentScore >= lowestHighScore;
+  questionTitleEl.textContent = isNewHighScore
+    ? `HIGH SCORE: ${userName} ${currentScore}`
+    : `SCORE: ${userName} ${currentScore}`;
+  questionEl.textContent = isNewHighScore
+    ? `Congrats! You got a new high score!`
+    : `You did not get a new high score. Try again!`;
+  // NOTES: Set buttons
+  answerBtnsEl[0].textContent = isNewHighScore
+    ? `Save High Score`
+    : `Back to Homepage`;
+  answerBtnsEl[1].textContent = isNewHighScore ? `Back to Homepage` : "";
+  answerBtnsEl[2].classList.add("hidden");
+  answerBtnsEl[3].classList.add("hidden");
+  // NOTES: Button Event Listeners
+  answerBtnsEl[0].addEventListener(
+    "click",
+    isNewHighScore ? saveHighScore : redirectToHomepage
+  );
+  answerBtnsEl[1].addEventListener("click", redirectToHomepage);
+}
+// SECTION: Redirect to Homepage
+function redirectToHomepage() {
+  window.location.href = "index.html";
+}
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
 function saveHighScore(name, score) {}
