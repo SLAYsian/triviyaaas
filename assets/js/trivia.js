@@ -12,6 +12,7 @@ let overlayEl = document.querySelector(".overlay");
 let closeModalBtn = document.querySelector(".close-modal");
 let questionTitleEl = document.querySelector(".question-title");
 
+// SECTION: DIFFICULTY & USERNAME
 // TODO: Check variables with homepage
 let difficulty = localStorage.getItem("triviaDifficulty") || "easy";
 let userName = localStorage.getItem("triviaUserName") || "";
@@ -38,12 +39,9 @@ function fetchTriviaQuestions() {
   });
 }
 
+// TODO: Wait until homepage code is written
+// fetchTriviaQuestions(difficulty)
 fetchTriviaQuestions();
-
-// SECTION: Difficulty selected from local storage
-// NOTES: Wait until homepage code is written
-// let selectedDifficulty = localStorage.getItem("variable")
-// fetchTriviaQuestions(variable)
 
 // SECTION: FUNCTION Display Trivia Questions
 // TODO: Special characters not displaying
@@ -80,9 +78,12 @@ function displayQuestion() {
 function shuffleAnswers(answers) {
   let answerIndex = answers.length,
     randomIndex;
+  // NOTES: While there are answers left
   while (answerIndex !== 0) {
+    // NOTES: picks a random position
     randomIndex = Math.floor(Math.random() * answerIndex);
     answerIndex--;
+    // NOTES: Swaps current answer position with the random position
     [answers[answerIndex], answers[randomIndex]] = [
       answers[randomIndex],
       answers[answerIndex],
@@ -131,6 +132,7 @@ closeModalBtn.addEventListener("click", () => {
 
 // SECTION: ADD SCORE
 function calcPoints(difficulty) {
+  // NOTES: Sets score based on difficulty
   if (difficulty === "easy") {
     return 5;
   } else if (difficulty === "medium") {
@@ -144,7 +146,9 @@ function calcPoints(difficulty) {
 
 // SECTION: DISPLAY NEXT QUESTION
 function nextQuestion() {
+  // NOTES: Increments question index by 1
   currentQuestionIndex++;
+  // NOTES: checks if index falls within questions length
   if (currentQuestionIndex < questions.length) {
     displayQuestion();
   } else {
@@ -157,12 +161,21 @@ function nextQuestion() {
 // TODO: variables
 function endQuiz() {
   // NOTES: Get high scores from local storage or start a new array
-  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  // let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  // NOTES: Check for parsing errors
+  let highScores;
+  try {
+    highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  } catch (error) {
+    console.error("Error parsing high scores from local storage:", error);
+    highScores = [];
+  }
   // NOTES: Lowest high score
   let lowestHighScore =
     highScores.length < 10 ? 0 : highScores[highScores.length - 1].score;
   // NOTES: Check if score is a new high score and display message
   let isNewHighScore = currentScore >= lowestHighScore;
+  // NOTES: Sets text to header depending on if high score
   questionTitleEl.textContent = isNewHighScore
     ? `HIGH SCORE: ${userName} ${currentScore}`
     : `SCORE: ${userName} ${currentScore}`;
@@ -189,4 +202,23 @@ function redirectToHomepage() {
 }
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
-function saveHighScore(name, score) {}
+function saveHighScore(name, score) {
+  //NOTES: Check for parsing errors
+  let highScores;
+  try {
+    highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  } catch (error) {
+    console.log("Error parsing high scores from local storage:", error);
+    highScores = [];
+  }
+  // NOTES: Push current score to array
+  highScores.push({ name: userName, score: currentScore });
+  // NOTES: Sort by score
+  highScores.sort((a, b) => b.score - a.score);
+  // NOTES: Slice to show only the top 10
+  highScores = highScores.slice(0, 10);
+  // NOTES: Save to local storage
+  localStorage.setItem("highScorees", JSON.stringify(highScores));
+  // NOTES: Redirect to High Scores page
+  window.location.href = "highscore.html";
+}
