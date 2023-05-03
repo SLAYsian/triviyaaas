@@ -21,7 +21,7 @@
       <h1>
         <img
           src="./assets/images/tetris-icon.svg"
-          height="60"
+          height="50"
           alt="tetris logo"
         />
         Trivia Arcade
@@ -30,21 +30,31 @@
     </header>
     <hr />
     <!-- SECTION: Main with Questions -->
-    <main class="trivia-main-body gradient-background">
-      <section class="question-container trivia-main">
+    <main class="trivia-main gradient-background">
+      <section class="main-container trivia-main">
         <h2 class="question-title">Question</h2>
         <p class="questioni"></p>
-        <div class="answers-buttons">
-          <button class="answers answer-0" type="button">answer 1</button>
-          <button class="answers answer-1" type="button">answer 2</button>
-          <button class="answers answer-2" type="button">answer 3</button>
-          <button class="answers answer-3" type="button">answer 4</button>
+        <div class="answers-container">
+          <button class="buttons answers answer-0" type="button">
+            answer 1
+          </button>
+          <button class="buttons answers answer-1" type="button">
+            answer 2
+          </button>
+          <button class="buttons answers answer-2" type="buttons button">
+            answer 3
+          </button>
+          <button class="buttons answers answer-3" type="button">
+            answer 4
+          </button>
         </div>
         <div class="trivia-modal hidden">
           <button class="close-modal">&times;</button>
           <h3 class="correct-incorrect"></h3>
-          <img class="modal-img" />
+          <img class="modal-img" height="50" />
           <p class="correct-answer"></p>
+          <!-- <button class="save-score hidden"></button>
+          <button class="return-homepage hidden"></button> -->
         </div>
         <div class="overlay hidden"></div>
       </section>

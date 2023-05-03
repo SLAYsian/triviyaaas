@@ -10,39 +10,31 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Bruno+Ace&family=Bungee+Hairline&family=Bungee+Shade&family=DotGothic16&family=Khand:wght@300;400&family=Macondo&family=Monoton&family=Nanum+Gothic+Coding&family=Press+Start+2P&family=Quantico&family=Space+Mono&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-    <title>Trivia</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Trivia Arcade</title>
 </head>
+
 <body class="trivia-body">
-    <header>
-        <img src="https://placeholder/circle" alt="No image available">
-        <h1>Trivia Arcade</h1>
-        <nav>
-            <a href="#">Home Page</a>
+    <header class="trivia-header">
+        <h1>
+            <img src="./assets/images/tetris-icon.svg" height="50" alt="tetris logo" />
+        Trivia Arcade
+        </h1>
+        <nav class="navbar">
+        <p class="high-score">HIGH SCORES 
+        </p>
+        
+            <a href="/index.html" class="homepage-link">Homepage</a>
         </nav>
     </header>
-    <main>
-        <section>            
-                <h2>High Scores</h2>                    
-                    <div class="easy-scores">
-                        <h3 id="easy">Easy</h3>
-                            <ul>
-                                
-                            </ul>
-                    </div>
-                    <div class="medium-scores">
-                        <h3 id="medium">Medium</h3>
-                            <ul>
-                                
-                            </ul>
-                    </div>
-                    <div class="hard-scores">
-                        <h3 id="hard">Hard</h3>
-                            <ul>
-                                
-                            </ul>
-                    </div>
-            </div>
+    <hr/>
+      
+    </header>
+    <main class="trivia-main gradient-background">
+        <section class="main-container">     
+            <img src="./assets/images/podium-pink.svg" height="70" alt="podium icon">
+            <h3 class="question-title">HIGH SCORES </h3>
+
         </section>
     </main>
     <script
@@ -50,6 +42,6 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <script src="./highscore/hs-script.js"></script>
+    <script src="./assets/js/highscore.js"></script>
 </body>
 </html>

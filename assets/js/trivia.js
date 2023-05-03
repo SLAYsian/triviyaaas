@@ -10,12 +10,23 @@ let correctAnswerEl = document.querySelector(".correct-answer");
 let modalImg = document.querySelector(".modal-img");
 let overlayEl = document.querySelector(".overlay");
 let closeModalBtn = document.querySelector(".close-modal");
+let questionTitleEl = document.querySelector(".question-title");
+
+// SECTION: DIFFICULTY & USERNAME
+// TODO: Check variables with homepage
+let difficulty = localStorage.getItem("triviaDifficulty") || "easy";
+let userName = localStorage.getItem("triviaUserName") || "";
+
+let currentQuestionIndex = 0;
+let questions = [];
+let currentScore = 0;
+gameScoreEl.textContent = `SCORE: ${currentScore}`;
 
 // SECTION: FETCH TRIVIA QUESTIONS
 
 function fetchTriviaQuestions() {
   fetch(`https://opentdb.com/api.php?amount=10&difficulty=easy`).then(function (
-    response // NOTES: Will use this one once code is written in index // fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
+    response // NOTES: Will use this one once code is written in index // function fetchTriviaQuestions(difficulty) { fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
   ) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -28,14 +39,17 @@ function fetchTriviaQuestions() {
   });
 }
 
+// TODO: Wait until homepage code is written
+// fetchTriviaQuestions(difficulty)
 fetchTriviaQuestions();
 
-// SECTION: FUNCTION Difficulty
-
 // SECTION: FUNCTION Display Trivia Questions
-// TODO: Special characters not displaying
-let currentQuestionIndex = 0;
-let questions = [];
+// NOTES: Display Speciak Characters
+function displaySpecChar(text) {
+  let specCharEl = document.createElement("textarea");
+  specCharEl.innerHTML = text;
+  return specCharEl.value;
+}
 
 function displayTriviaQuestions(triviaData) {
   questions = triviaData;
@@ -44,15 +58,46 @@ function displayTriviaQuestions(triviaData) {
 
 function displayQuestion() {
   let question = questions[currentQuestionIndex];
-  questionEl.textContent = question.question;
-
+  // questionEl.textContent = question.question;
+  questionEl.textContent = displaySpecChar(question.question);
+  // NOTES: Create a new array combining correct and incorrect answers
   let answers = [...question.incorrect_answers, question.correct_answer];
+  answers = shuffleAnswers(answers);
 
   answerBtnsEl.forEach((button, index) => {
-    // TODO: Account for Boolean
-    button.textContent = answers[index];
-    button.dataset.correct = answers[index] === question.correct_answer;
+    button.textContent = displaySpecChar(answers[index]);
+    // button.dataset.correct = answers[index] === question.correct_answer;
+    button.dataset.correct =
+      answers[index] === displaySpecChar(question.correct_answer);
+    // NOTES: Account for Boolean
+    if (
+      question.type === "boolean" &&
+      (button.classList.contains("answer-2") ||
+        button.classList.contains("answer-3"))
+    ) {
+      button.classList.add("hidden");
+    } else {
+      button.classList.remove("hidden");
+    }
   });
+}
+
+// SECTION: FUNCTION Randomize answers
+function shuffleAnswers(answers) {
+  let answerIndex = answers.length,
+    randomIndex;
+  // NOTES: While there are answers left
+  while (answerIndex !== 0) {
+    // NOTES: picks a random position
+    randomIndex = Math.floor(Math.random() * answerIndex);
+    answerIndex--;
+    // NOTES: Swaps current answer position with the random position
+    [answers[answerIndex], answers[randomIndex]] = [
+      answers[randomIndex],
+      answers[answerIndex],
+    ];
+  }
+  return answers;
 }
 
 // SECTION: EVENT HANDLER BUTTON Correct Answer
@@ -69,14 +114,19 @@ function handleAnswer(correctAnswer) {
   let thisCorrectAnswer = question.correct_answer;
   if (correctAnswer) {
     correctOrIncorrectEl.textContent = "CORRECT!";
-    // TODO: ADD IMAGE
-    modalImg.src = "";
+
+    modalImg.src = "./assets/images/level-up2.svg";
     correctAnswerEl.textContent = "";
+    // TODO: Fix once script.js is updated
+    // let points = calcPoints(selectedDifficulty);
+    let points = calcPoints("easy");
+    currentScore += points;
+    gameScoreEl.textContent = `SCORE: ${currentScore}`;
   } else {
     correctOrIncorrectEl.textContent = "INCORRECT!";
     correctAnswerEl.textContent = `Correct Answer: ${thisCorrectAnswer}`;
-    // TODO: ADD IMAGE
-    modalImg.src = "";
+
+    modalImg.src = "./assets/images/dead.svg";
   }
   modalEl.classList.remove("hidden");
   overlayEl.classList.remove("hidden");
@@ -89,21 +139,98 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 // SECTION: ADD SCORE
-function addScore() {}
+function calcPoints(difficulty) {
+  // NOTES: Sets score based on difficulty
+  if (difficulty === "easy") {
+    return 5;
+  } else if (difficulty === "medium") {
+    return 10;
+  } else if (difficulty === "hard") {
+    return 15;
+  } else {
+    return 0;
+  }
+}
 
 // SECTION: DISPLAY NEXT QUESTION
 function nextQuestion() {
+  // NOTES: Increments question index by 1
   currentQuestionIndex++;
+  // NOTES: checks if index falls within questions length
   if (currentQuestionIndex < questions.length) {
-    showQuestion();
+    displayQuestion();
   } else {
-    // TODO: Replace with endQuiz function
-    return;
+    // NOTES: Replace with endQuiz function
+    endQuiz();
   }
 }
 
 // SECTION: END OF QUIZ
-function endQuiz() {}
+// TODO: variables
+function endQuiz() {
+  // NOTES: Get high scores from local storage or start a new array
+  // let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  // NOTES: Check for parsing errors
+  let highScores;
+  try {
+    highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  } catch (error) {
+    console.error("Error parsing high scores from local storage:", error);
+    highScores = [];
+  }
+  // NOTES: Lowest high score
+  let lowestHighScore =
+    highScores.length < 10 ? 0 : highScores[highScores.length - 1].score;
+  // NOTES: Check if score is a new high score and display message
+  let isNewHighScore = currentScore >= lowestHighScore;
+  // NOTES: Sets text to header depending on if high score
+  questionTitleEl.textContent = isNewHighScore
+    ? `HIGH SCORE: ${userName} ${currentScore}`
+    : `SCORE: ${userName} ${currentScore}`;
+  questionEl.textContent = isNewHighScore
+    ? `Congrats! You've achieved a new high score!`
+    : `You did not get a new high score. Try again!`;
+  // NOTES: Set buttons
+  answerBtnsEl[0].textContent = isNewHighScore
+    ? `Save High Score`
+    : `Back to Homepage`;
+  answerBtnsEl[1].textContent = isNewHighScore ? `Back to Homepage` : "";
+  answerBtnsEl[2].classList.add("hidden");
+  answerBtnsEl[3].classList.add("hidden");
+  // NOTES: Button Event Listeners
+  answerBtnsEl[0].addEventListener(
+    "click",
+    isNewHighScore ? () => saveHighScore(difficulty) : redirectToHomepage
+  );
+  answerBtnsEl[1].addEventListener("click", redirectToHomepage);
+}
+// SECTION: Redirect to Homepage
+function redirectToHomepage() {
+  window.location.href = "index.html";
+}
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
-function saveHighScore(name, score) {}
+function saveHighScore(difficulty) {
+  //NOTES: Check for parsing errors
+  let highScores;
+  try {
+    highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  } catch (error) {
+    console.log("Error parsing high scores from local storage:", error);
+    highScores = [];
+  }
+  // NOTES: Push current score to array
+  highScores.push({
+    name: userName,
+    score: currentScore,
+    difficulty: difficulty,
+  });
+  // NOTES: Sort by score
+  highScores.sort((a, b) => b.score - a.score);
+  // NOTES: Slice to show only the top 10
+  highScores = highScores.slice(0, 10);
+  // NOTES: Save to local storage
+  localStorage.setItem("highScorees", JSON.stringify(highScores));
+  // NOTES: Redirect to High Scores page
+  window.location.href = "highscore.html";
+}
