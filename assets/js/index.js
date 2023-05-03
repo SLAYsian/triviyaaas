@@ -9,7 +9,6 @@ function submitHandler(e){
         return;
     }
     localStorage.setItem("current-user", nameField.value);
-    alert("quiz started");
     window.location.replace("trivia.html")
 }
 nameEl.addEventListener("submit", submitHandler);

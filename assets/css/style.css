@@ -40,7 +40,7 @@
   100% {
     background-position: 0% 50%;
   }
-
+}
 .hidden {
   display: none;
 }
@@ -155,8 +155,8 @@ a{
   padding: 15px;
 }
 .trivia-main-body {
-}
 
+}
 .trivia-body {
   position: relative;
   background-image: url("./assets/images/senad-palic-tron-unsplash.jpg");
@@ -174,7 +174,7 @@ a{
 
 .questioni {
   font-family: var(--font-space-mono);
-  font-size: ;
+  /* font-size: ; */
 }
 .trivia-modal {
   position: absolute;
