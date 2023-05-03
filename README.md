@@ -4,13 +4,16 @@ Trivia Arcade
 
 ## Authors:
 
+Kat Gorecki
+Nolan Kreiger
+
 ### User Story:
 
 ### Usage:
 
 -
 
-[Live Deployment]()
+[Live Deployment](https://slaysian.github.io/triviyaaas/)
 
 ### Screenshots:
 

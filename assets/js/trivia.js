@@ -44,7 +44,12 @@ function fetchTriviaQuestions() {
 fetchTriviaQuestions();
 
 // SECTION: FUNCTION Display Trivia Questions
-// TODO: Special characters not displaying
+// NOTES: Display Speciak Characters
+function displaySpecChar(text) {
+  let specCharEl = document.createElement("textarea");
+  specCharEl.innerHTML = text;
+  return specCharEl.value;
+}
 
 function displayTriviaQuestions(triviaData) {
   questions = triviaData;
@@ -53,14 +58,17 @@ function displayTriviaQuestions(triviaData) {
 
 function displayQuestion() {
   let question = questions[currentQuestionIndex];
-  questionEl.textContent = question.question;
+  // questionEl.textContent = question.question;
+  questionEl.textContent = displaySpecChar(question.question);
   // NOTES: Create a new array combining correct and incorrect answers
   let answers = [...question.incorrect_answers, question.correct_answer];
   answers = shuffleAnswers(answers);
 
   answerBtnsEl.forEach((button, index) => {
-    button.textContent = answers[index];
-    button.dataset.correct = answers[index] === question.correct_answer;
+    button.textContent = displaySpecChar(answers[index]);
+    // button.dataset.correct = answers[index] === question.correct_answer;
+    button.dataset.correct =
+      answers[index] === displaySpecChar(question.correct_answer);
     // NOTES: Account for Boolean
     if (
       question.type === "boolean" &&
@@ -106,8 +114,8 @@ function handleAnswer(correctAnswer) {
   let thisCorrectAnswer = question.correct_answer;
   if (correctAnswer) {
     correctOrIncorrectEl.textContent = "CORRECT!";
-    // TODO: ADD IMAGE
-    modalImg.src = "";
+
+    modalImg.src = "./assets/images/level-up2.svg";
     correctAnswerEl.textContent = "";
     // TODO: Fix once script.js is updated
     // let points = calcPoints(selectedDifficulty);
@@ -117,8 +125,8 @@ function handleAnswer(correctAnswer) {
   } else {
     correctOrIncorrectEl.textContent = "INCORRECT!";
     correctAnswerEl.textContent = `Correct Answer: ${thisCorrectAnswer}`;
-    // TODO: ADD IMAGE
-    modalImg.src = "";
+
+    modalImg.src = "./assets/images/dead.svg";
   }
   modalEl.classList.remove("hidden");
   overlayEl.classList.remove("hidden");
@@ -180,7 +188,7 @@ function endQuiz() {
     ? `HIGH SCORE: ${userName} ${currentScore}`
     : `SCORE: ${userName} ${currentScore}`;
   questionEl.textContent = isNewHighScore
-    ? `Congrats! You got a new high score!`
+    ? `Congrats! You've achieved a new high score!`
     : `You did not get a new high score. Try again!`;
   // NOTES: Set buttons
   answerBtnsEl[0].textContent = isNewHighScore
@@ -192,7 +200,7 @@ function endQuiz() {
   // NOTES: Button Event Listeners
   answerBtnsEl[0].addEventListener(
     "click",
-    isNewHighScore ? saveHighScore : redirectToHomepage
+    isNewHighScore ? () => saveHighScore(difficulty) : redirectToHomepage
   );
   answerBtnsEl[1].addEventListener("click", redirectToHomepage);
 }
@@ -202,7 +210,7 @@ function redirectToHomepage() {
 }
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
-function saveHighScore(name, score) {
+function saveHighScore(difficulty) {
   //NOTES: Check for parsing errors
   let highScores;
   try {
@@ -212,7 +220,11 @@ function saveHighScore(name, score) {
     highScores = [];
   }
   // NOTES: Push current score to array
-  highScores.push({ name: userName, score: currentScore });
+  highScores.push({
+    name: userName,
+    score: currentScore,
+    difficulty: difficulty,
+  });
   // NOTES: Sort by score
   highScores.sort((a, b) => b.score - a.score);
   // NOTES: Slice to show only the top 10

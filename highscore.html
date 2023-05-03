@@ -11,33 +11,30 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Trivia</title>
+    <title>Trivia Arcade</title>
 </head>
 
 <body class="trivia-body">
     <header class="trivia-header">
         <h1>
-            <img src="./assets/images/tetris-icon.svg" height="60" alt="tetris logo" />
-        </a>
-
+            <img src="./assets/images/tetris-icon.svg" height="50" alt="tetris logo" />
         Trivia Arcade
         </h1>
-        <p class="high-score">High Scores </p>
-    </header>
-    <hr/>
-        <nav>
-            <a href="#">Home Page</a>
+        <nav class="navbar">
+        <p class="high-score">HIGH SCORES 
+        </p>
+        
+            <a href="/index.html" class="homepage-link">Homepage</a>
         </nav>
     </header>
-    <main class="gradient-background">
-        <section class="highscore-container">            
-                                
-                <h3 id="easy">Easy Scores:</h3>
-                    <div class="easy-scores"></div>
-                <h3 id="medium">Medium Scores:</h3>
-                    <div class="medium-scores"></div>
-                <h3 id="hard">Hard Scores:</h3>
-                    <div class="hard-scores"></div>            
+    <hr/>
+      
+    </header>
+    <main class="trivia-main gradient-background">
+        <section class="main-container">     
+            <img src="./assets/images/podium-pink.svg" height="70" alt="podium icon">
+            <h3 class="question-title">HIGH SCORES </h3>
+
         </section>
     </main>
     <script
@@ -45,6 +42,6 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <script src="./highscore/hs-script.js"></script>
+    <script src="./assets/js/highscore.js"></script>
 </body>
 </html>
