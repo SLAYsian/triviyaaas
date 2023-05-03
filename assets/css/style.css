@@ -47,7 +47,6 @@
   }
 }
 
-
 .trivia-header {
   font-family: var(--font-bungee-shade);
   font-size: 1.75em;
@@ -66,7 +65,6 @@
   justify-content: space-between;
   margin: 0.5rem 5rem;
 }
-
 
 .hidden {
   display: none;
@@ -109,7 +107,7 @@
 #high-scores-nav {
   position: relative;
   left: 60%;
-  bottom: 75px;
+  top: 45px;
   font-size: 50px;
   list-style: armenian;
 }
@@ -117,6 +115,10 @@ a {
   text-decoration: none;
   color: red;
   margin-left: 25px;
+}
+#description{
+  position: relative;
+  bottom: 25px;
 }
 #main-box {
   border-style: solid;
@@ -146,6 +148,7 @@ a {
   left: 150px;
   text-decoration: underline;
   font-family: "Courier New", Courier, monospace;
+  /* buttons/homepage */
 }
 #easy-btn {
   background-color: green;
@@ -188,8 +191,11 @@ a {
 }
 /* SECTION: Questions Pages*/
 
+/* .trivia-header p {
+  color: var(--neonpurp);
+  padding: 10px 0px;
+} */
 
-}
 .trivia-body {
   position: relative;
   /* background-image: url("./assets/images/senad-palic-tron-unsplash.jpg");
@@ -205,16 +211,13 @@ a {
 .questioni {
   padding-top: 10px;
   font-family: var(--font-space-mono);
-
   /* font-size: ; */
-
   flex-wrap: wrap;
   color: var(--black);
   /* width: 75vh; */
   font-size: 1.1rem;
   margin-left: 1rem;
   text-shadow: #333;
-
 }
 
 .trivia-modal {
