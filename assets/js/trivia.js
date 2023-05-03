@@ -192,7 +192,7 @@ function endQuiz() {
   // NOTES: Button Event Listeners
   answerBtnsEl[0].addEventListener(
     "click",
-    isNewHighScore ? saveHighScore : redirectToHomepage
+    isNewHighScore ? () => saveHighScore(difficulty) : redirectToHomepage
   );
   answerBtnsEl[1].addEventListener("click", redirectToHomepage);
 }
@@ -202,7 +202,7 @@ function redirectToHomepage() {
 }
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
-function saveHighScore(name, score) {
+function saveHighScore(difficulty) {
   //NOTES: Check for parsing errors
   let highScores;
   try {
@@ -212,7 +212,11 @@ function saveHighScore(name, score) {
     highScores = [];
   }
   // NOTES: Push current score to array
-  highScores.push({ name: userName, score: currentScore });
+  highScores.push({
+    name: userName,
+    score: currentScore,
+    difficulty: difficulty,
+  });
   // NOTES: Sort by score
   highScores.sort((a, b) => b.score - a.score);
   // NOTES: Slice to show only the top 10

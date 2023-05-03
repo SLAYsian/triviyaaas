@@ -12,6 +12,8 @@
   --neonturq: #00f1dc;
   --neongreen: #0cf100;
   --neonocoral: #ee7752;
+  --white: #f5f5f5;
+  --black: #1d1d1f;
   --font-press-start: "Press Start 2P", cursive;
   --font-bungee-shade: "Bungee Shade", cursive;
   --font-monoton: "Monoton", cursive;
@@ -27,7 +29,6 @@
     var(--neonpink),
     var(--neonpurp)
   );
-  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
@@ -55,6 +56,13 @@
   flex-wrap: wrap;
   padding: 15px;
 }
+.main-container {
+  padding-top: 1em;
+  font-display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.5rem 5rem;
+}
 
 .hidden {
   display: none;
@@ -66,7 +74,7 @@
   margin: 1em;
   text-align: start;
   border-radius: 25px;
-  border-color: whitesmoke;
+  border-color: var(--white);
   box-shadow: 8px 8px 3px 1px rgba(0, 0, 0, 0.2);
   background: radial-gradient(circle, white 0%, #e9baff 100%);
 }
@@ -171,7 +179,7 @@ a {
 }
 /* SECTION: Questions Pages*/
 
-.header p {
+.trivia-header p {
   color: var(--neonpurp);
   padding: 10px 0px;
 }
@@ -182,16 +190,9 @@ a {
   background-size: cover; */
 }
 
-.question-container {
-  padding-top: 1em;
-  font-display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0.5rem 5rem;
-}
 .question-title {
   font-family: var(--font-monoton);
-  color: white;
+  color: var(--white);
   font-size: 2rem;
 }
 
@@ -199,7 +200,7 @@ a {
   padding-top: 10px;
   font-family: var(--font-space-mono);
   flex-wrap: wrap;
-  color: white;
+  color: ;
   /* width: 75vh; */
   font-size: 1.2rem;
   margin-left: 1rem;
@@ -213,7 +214,8 @@ a {
   transform: translate(-50%, -50%);
   width: 70%;
 
-  background-color: white;
+  background-color: var(--black);
+  color: var(--white);
   padding: 6rem;
   border-radius: 5px;
   /* box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3); */
@@ -253,16 +255,18 @@ a {
   z-index: 5;
 }
 
-#easy,
-#medium,
-#hard {
-  font-family: var(--font-monoton);
-  color: white;
-  font-size: 2rem;
-}
 .answers-container {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   /* width: 60vh; */
 }
+
+/* SECTION: High Scores */
+/* #easy,
+#medium,
+#hard {
+  font-family: var(--font-monoton);
+  color: var(--white);
+  font-size: 2rem;
+} */
