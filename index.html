@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-    <title>Trivia Arcade</title>
-  </head>
-  <body>
-    <header id="header">
-      <img src="./assets/images/tetris-icon.png" alt="No image available" height="150px" width="150px"/>
-      <h1 id="trivia-header">Trivia</h1>
-      <nav id="high-scores-nav">
-        <a href="#">New Game</a>
-        <a href="#">High Scores</a>
-      </nav>
-    </header>
-    <main>
-        <section>
-                <div id="main-box">
-                    <form id="name-form">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name-input"/>
-                        <button id="name-submit">Submit</button>
-                    </form>
-                    <h5 id="difficulty-text">Difficulty</h5>
-                    <p id="description"></p>
-                    <div>
-                        <button id="easy-btn">Easy <br> <span id="easy-text">1 point</span></button>
-                        <button id="medium-btn">Medium <br> <span id="medium-text">2 points</span></button>
-                        <button id="hard-btn">Hard <br> <span id="hard-text">3 points</span></button>
-                    </div>
-                </div>
-        </section>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Trivia Arcade</title>
+</head>
+
+<body>
+  <header id="header">
+    <img src="./assets/images/tetris-icon.png" alt="No image available" height="150px" width="150px" />
+    <h1 id="trivia-header">Trivia</h1>
+    <nav id="high-scores-nav">
+      <a href="#">New Game</a>
+      <a href="#">High Scores</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <div id="main-box">
+        <form id="name-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name-input" />
+          <h5 id="difficulty-text">Difficulty</h5>
+          <p id="description"></p>
+          <button id="easy-btn">Easy <br> <span id="easy-text">1 point</span></button>
+          <button id="medium-btn">Medium <br> <span id="medium-text">2 points</span></button>
+          <button id="hard-btn">Hard <br> <span id="hard-text">3 points</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="./assets/js/index.js"></script>
+</body>
+
 </html>
