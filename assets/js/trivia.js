@@ -114,7 +114,7 @@ function handleAnswer(correctAnswer) {
   if (correctAnswer) {
     correctOrIncorrectEl.textContent = "CORRECT!";
 
-    modalImg.src = "./assets/images/level-up2.svg";
+    modalImg.src = "./assets/images/level-up.svg";
     correctAnswerEl.textContent = "";
     // TODO: Fix once script.js is updated
     let points = calcPoints(difficulty);

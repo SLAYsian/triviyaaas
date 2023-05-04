@@ -24,10 +24,11 @@ function submitHandler(e) {
     description.textContent = "Please enter your name!";
     return;
   }
-  let userName = nameField.value;
   localStorage.setItem("userName", userName);
 }
 function initTrivia(difficulty) {
+  let userName = nameField.value;
+  localStorage.setItem("userName", userName);
   localStorage.setItem("difficulty", difficulty);
   window.location.replace("trivia.html");
 }
