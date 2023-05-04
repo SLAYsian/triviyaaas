@@ -66,7 +66,6 @@
   margin: 0.5rem 5rem;
 }
 
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -98,7 +97,6 @@ button:hover {
 a {
   color: var(--neonpurp);
 }
-s
 
 a:hover {
   color: var(--neonturq);
@@ -106,8 +104,7 @@ a:hover {
 
 /* SECTION: HOMEPAGE */
 
-
-#description{
+#description {
   position: relative;
   bottom: 25px;
 }
@@ -150,7 +147,6 @@ label {
   padding-top: 15px;
   display: inline-flex;
   flex-wrap: wrap;
-
 }
 #easy-btn {
   background: radial-gradient(circle, var(--white) 0%, var(--neongreen) 100%);
@@ -163,13 +159,10 @@ label {
   background: radial-gradient(circle, var(--white) 0%, #ff0303 100%);
 }
 
-
 /* SECTION: Questions Pages*/
 
 .trivia-body {
   position: relative;
-  /* background-image: url("./assets/images/senad-palic-tron-unsplash.jpg");
-  background-size: cover; */
 }
 
 .question-title {
@@ -181,7 +174,7 @@ label {
 .questioni {
   padding-top: 10px;
   font-family: var(--font-space-mono);
-  
+
   flex-wrap: wrap;
   color: var(--black);
   font-size: 1.1rem;
