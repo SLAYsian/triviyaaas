@@ -116,14 +116,14 @@ function handleAnswer(correctAnswer) {
 
     modalImg.src = "./assets/images/level-up.svg";
     correctAnswerEl.textContent = "";
-    // TODO: Fix once script.js is updated
     let points = calcPoints(difficulty);
-    // let points = calcPoints("easy");
     currentScore += points;
     gameScoreEl.textContent = `SCORE: ${currentScore}`;
   } else {
     correctOrIncorrectEl.textContent = "INCORRECT!";
-    correctAnswerEl.textContent = `Correct Answer: ${thisCorrectAnswer}`;
+    correctAnswerEl.textContent = `Correct Answer: ${displaySpecChar(
+      thisCorrectAnswer
+    )}`;
 
     modalImg.src = "./assets/images/dead.svg";
   }
