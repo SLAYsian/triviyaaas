@@ -13,7 +13,6 @@ let closeModalBtn = document.querySelector(".close-modal");
 let questionTitleEl = document.querySelector(".question-title");
 
 // SECTION: DIFFICULTY & USERNAME
-// TODO: Check variables with homepage
 let difficulty = localStorage.getItem("difficulty") || "easy";
 let userName = localStorage.getItem("userName") || "";
 
@@ -165,7 +164,6 @@ function nextQuestion() {
 }
 
 // SECTION: END OF QUIZ
-// TODO: variables
 function endQuiz() {
   // NOTES: Get high scores from local storage or start a new array
   // let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
@@ -192,20 +190,23 @@ function endQuiz() {
   // NOTES: Set buttons
   answerBtnsEl[0].textContent = isNewHighScore
     ? `Save High Score`
-    : `Back to Homepage`;
-  answerBtnsEl[1].textContent = isNewHighScore ? `Back to Homepage` : "";
+    : `View High Scores`;
+  answerBtnsEl[1].textContent = `Back to Homepage`;
   answerBtnsEl[2].classList.add("hidden");
   answerBtnsEl[3].classList.add("hidden");
   // NOTES: Button Event Listeners
   answerBtnsEl[0].addEventListener(
     "click",
-    isNewHighScore ? () => saveHighScore(difficulty) : redirectToHomepage
+    isNewHighScore ? () => saveHighScore(difficulty) : redirectToHighScores
   );
   answerBtnsEl[1].addEventListener("click", redirectToHomepage);
 }
-// SECTION: Redirect to Homepage
+// SECTION: Redirect to Homepage or Highscores
 function redirectToHomepage() {
   window.location.href = "index.html";
+}
+function redirectToHighScores() {
+  window.location.href = "highscore.html";
 }
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
@@ -219,11 +220,14 @@ function saveHighScore(difficulty) {
     console.log("Error parsing high scores from local storage:", error);
     highScores = [];
   }
+  // NOTES: Create a unique ID for game
+  let gameId = Date.now();
   // NOTES: Push current score to array
   highScores.push({
     name: userName,
     score: currentScore,
     difficulty: difficulty,
+    id: gameId,
   });
   // NOTES: Sort by score
   highScores.sort((a, b) => b.score - a.score);
@@ -232,5 +236,7 @@ function saveHighScore(difficulty) {
   // NOTES: Save to local storage
   localStorage.setItem("highScores", JSON.stringify(highScores));
   // NOTES: Redirect to High Scores page
-  window.location.href = "highscore.html";
+  // window.location.href = "highscore.html";
+  // window.location.href = `highscore.html?score=${currentScore}`;
+  window.location.href = `highscore.html?score=${currentScore}&name=${userName}&id=${gameId}`;
 }
