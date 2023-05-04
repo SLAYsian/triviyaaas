@@ -28,6 +28,14 @@ We wanted to create a fun page where people can play test their trivia based on 
 
 ### Screenshots:
 
+![Home page](assets/images/homepage.png)
+![Trivia page](assets/images/trivia-question.png)
+![Incorrect modal](assets/images/correct-modal.png)
+![Correct modal](assets/images/correct-modal.png)
+![Points](assets/images/points-added.png)
+![End trivia](assets/images/end-trivia.png)
+![High Score](assets/images/high-scores2.png)
+
 ### References:
 
 - Open Trivia Database API (https://opentdb.com/api_config.php)
