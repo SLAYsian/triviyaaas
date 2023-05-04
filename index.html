@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&family=Bruno+Ace&family=Bungee+Hairline&family=Bungee+Shade&family=DotGothic16&family=Khand:wght@300;400&family=Macondo&family=Monoton&family=Nanum+Gothic+Coding&family=Press+Start+2P&family=Quantico&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Trivia Arcade</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Trivia Arcade</title>
-</head>
-
-<body>
-  <header id="header">
-    <img src="./assets/images/tetris-icon.png" alt="No image available" height="150px" width="150px" />
-    <h1 id="trivia-header">Trivia</h1>
-    <nav id="high-scores-nav">
-      <a href="./highscore.html">High Scores</a>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <div id="main-box">
+  <body>
+    <header id="header" class="trivia-header">
+      <!-- id="trivia-header" -->
+      <h1>
+        <img
+          src="./assets/images/tetris-icon.svg"
+          alt="No image available"
+          height="50"
+        />
+        Trivia Arcade
+      </h1>
+      <nav class="navbar">
+        <p>Homepage</p>
+         <a href="./highscore.html">High Scores</a>
+      </nav>
+    </header>
+    <main class="gradient-background trivia-body">
+      <section id="main-box">
         <form id="name-form">
           <label for="name">Name:</label>
           <input type="text" id="name-input" />
-          <h5 id="difficulty-text">Difficulty</h5>
-          <p id="description"></p>
-          <button id="easy-btn">Easy <br> <span id="easy-text">1 point</span></button>
-          <button id="medium-btn">Medium <br> <span id="medium-text">2 points</span></button>
-          <button id="hard-btn">Hard <br> <span id="hard-text">3 points</span></button>
         </form>
-      </div>
-    </section>
-  </main>
-  <script src="./assets/js/index.js"></script>
-</body>
-
+        <!-- id="difficulty-title" -->
+        <h2 class="question-title">Difficulty</h2>
+        <p id="description"></p>
+        <div class="btn-container">
+          <button id="easy-btn" class="buttons">
+            Easy <br />
+            <span class="difficulty-text">5 points each</span>
+          </button>
+          <button id="medium-btn" class="buttons">
+            Medium <br />
+            <span class="difficulty-text">10 points each</span>
+          </button>
+          <button id="hard-btn" class="buttons">
+            Hard <br />
+            <span class="difficulty-text">15 points each</span>
+          </button>
+        </div>
+      </section>
+    </main>
+        <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
 </html>
