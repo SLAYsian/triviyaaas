@@ -14,8 +14,8 @@ let questionTitleEl = document.querySelector(".question-title");
 
 // SECTION: DIFFICULTY & USERNAME
 // TODO: Check variables with homepage
-let difficulty = localStorage.getItem("triviaDifficulty") || "easy";
-let userName = localStorage.getItem("triviaUserName") || "";
+let difficulty = localStorage.getItem("difficulty") || "easy";
+let userName = localStorage.getItem("userName") || "";
 
 let currentQuestionIndex = 0;
 let questions = [];
@@ -24,27 +24,26 @@ gameScoreEl.textContent = `SCORE: ${currentScore}`;
 
 // SECTION: FETCH TRIVIA QUESTIONS
 
-function fetchTriviaQuestions() {
-  fetch(`https://opentdb.com/api.php?amount=10&difficulty=easy`).then(function (
-    response // NOTES: Will use this one once code is written in index // function fetchTriviaQuestions(difficulty) { fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(function ( response)
-  ) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        displayTriviaQuestions(data.results);
-        console.log(data);
-      });
-    } else {
-      errorMsg.textContent = `Error: ${response.status} ${response.statusText}`;
+// NOTES: Will use this one once code is written in index //
+
+function fetchTriviaQuestions(difficulty) {
+  fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}`).then(
+    function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          displayTriviaQuestions(data.results);
+          console.log(data);
+        });
+      } else {
+        errorMsg.textContent = `Error: ${response.status} ${response.statusText}`;
+      }
     }
-  });
+  );
 }
 
-// TODO: Wait until homepage code is written
-// fetchTriviaQuestions(difficulty)
-fetchTriviaQuestions();
-
 // SECTION: FUNCTION Display Trivia Questions
-// NOTES: Display Speciak Characters
+fetchTriviaQuestions(difficulty);
+// NOTES: Display Special Characters
 function displaySpecChar(text) {
   let specCharEl = document.createElement("textarea");
   specCharEl.innerHTML = text;
@@ -66,7 +65,7 @@ function displayQuestion() {
 
   answerBtnsEl.forEach((button, index) => {
     button.textContent = displaySpecChar(answers[index]);
-    // button.dataset.correct = answers[index] === question.correct_answer;
+
     button.dataset.correct =
       answers[index] === displaySpecChar(question.correct_answer);
     // NOTES: Account for Boolean
@@ -118,8 +117,8 @@ function handleAnswer(correctAnswer) {
     modalImg.src = "./assets/images/level-up2.svg";
     correctAnswerEl.textContent = "";
     // TODO: Fix once script.js is updated
-    // let points = calcPoints(selectedDifficulty);
-    let points = calcPoints("easy");
+    let points = calcPoints(difficulty);
+    // let points = calcPoints("easy");
     currentScore += points;
     gameScoreEl.textContent = `SCORE: ${currentScore}`;
   } else {
@@ -211,6 +210,7 @@ function redirectToHomepage() {
 
 // SECTION: SAVE NAME TO HIGH SCORE/ LOCAL STORAGE
 function saveHighScore(difficulty) {
+  // let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   //NOTES: Check for parsing errors
   let highScores;
   try {
@@ -230,7 +230,7 @@ function saveHighScore(difficulty) {
   // NOTES: Slice to show only the top 10
   highScores = highScores.slice(0, 10);
   // NOTES: Save to local storage
-  localStorage.setItem("highScorees", JSON.stringify(highScores));
+  localStorage.setItem("highScores", JSON.stringify(highScores));
   // NOTES: Redirect to High Scores page
   window.location.href = "highscore.html";
 }
