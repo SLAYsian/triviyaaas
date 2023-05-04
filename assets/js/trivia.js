@@ -13,7 +13,6 @@ let closeModalBtn = document.querySelector(".close-modal");
 let questionTitleEl = document.querySelector(".question-title");
 
 // SECTION: DIFFICULTY & USERNAME
-// TODO: Check variables with homepage
 let difficulty = localStorage.getItem("difficulty") || "easy";
 let userName = localStorage.getItem("userName") || "";
 
@@ -165,7 +164,6 @@ function nextQuestion() {
 }
 
 // SECTION: END OF QUIZ
-// TODO: variables
 function endQuiz() {
   // NOTES: Get high scores from local storage or start a new array
   // let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
