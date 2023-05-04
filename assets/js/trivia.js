@@ -183,9 +183,9 @@ function endQuiz() {
   // NOTES: Check if score is a new high score and display message
   let isNewHighScore = currentScore >= lowestHighScore;
   // NOTES: Sets text to header depending on if high score
-  questionTitleEl.textContent = isNewHighScore
-    ? `HIGH SCORE: ${userName} ${currentScore}`
-    : `SCORE: ${userName} ${currentScore}`;
+  questionTitleEl.innerHTML = isNewHighScore
+    ? `HIGH SCORE: <br>${userName}  -  ${currentScore}`
+    : `SCORE: <br>${userName}  -  ${currentScore}`;
   questionEl.textContent = isNewHighScore
     ? `Congrats! You've achieved a new high score!`
     : `You did not get a new high score. Try again!`;
