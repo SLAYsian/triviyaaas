@@ -32,7 +32,7 @@ function fetchTriviaQuestions(difficulty) {
       if (response.ok) {
         response.json().then(function (data) {
           displayTriviaQuestions(data.results);
-          console.log(data);
+          // console.log(data);
         });
       } else {
         errorMsg.textContent = `Error: ${response.status} ${response.statusText}`;
