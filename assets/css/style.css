@@ -66,11 +66,19 @@
   margin: 0.5rem 5rem;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 0px;
+  color: var(--neonpurp);
+}
+
 .hidden {
   display: none;
 }
 
-.buttons {
+button {
   padding: 1rem;
   font-family: var(--font-press-start);
   margin: 1em;
@@ -82,108 +90,69 @@
   cursor: pointer;
 }
 
-.buttons:hover {
+button:hover {
   background: radial-gradient(circle, var(--magenta) 0%, var(--white) 100%);
 }
 
-#header {
-  border-style: solid;
-  border-color: black;
-  border-radius: 10px;
-  height: 175px;
-  position: relative;
-  left: 1%;
-  top: 10px;
-  width: 98%;
-}
-#trivia-header {
-  font-size: 100px;
-  font-family: "Courier New", Courier, monospace;
-  font-style: oblique;
-  position: fixed;
-  left: 30%;
-  top: 50px;
-}
-#high-scores-nav {
-  position: relative;
-  left: 60%;
-  bottom: 75px;
-  font-size: 50px;
-  list-style: armenian;
-}
 a {
-  text-decoration: none;
-  color: red;
-  margin-left: 25px;
+  color: var(--neonpurp);
 }
+
+a:hover {
+  color: var(--neonturq);
+}
+
+/* SECTION: HOMEPAGE */
+
 #main-box {
-  border-style: solid;
-  border-radius: 25px;
-  border-color: black;
-  display: inline-block;
-  padding: 20px;
-  height: 300px;
-  width: 500px;
-  background-color: whitesmoke;
-  position: relative;
-  left: 30%;
-  top: 100px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: var(--black);
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 20px 20px 5px 3px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  text-align: left;
 }
+
+label {
+  font-family: var(--font-press-start);
+  font-size: 1.25rem;
+}
+
 #name-input {
-  height: 25px;
-  width: 200px;
+  height: 2rem;
+  width: 75%;
+  font-family: var(--font-space-mono);
+  font-size: 1.25rem;
+  padding-left: 10px;
 }
-#name-submit {
-  height: 30px;
-  width: 50px;
+
+.difficulty-text {
+  font-family: var(--font-space-mono);
+  padding-top: 10px;
 }
-#difficulty-text {
-  font-size: 50px;
-  position: relative;
-  top: 50px;
-  left: 150px;
-  text-decoration: underline;
-  font-family: "Courier New", Courier, monospace;
+.btn-container {
+  padding-top: 15px;
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 #easy-btn {
-  background-color: green;
-  position: relative;
-  left: 175px;
-  top: 75px;
-  height: 50px;
-  width: 80px;
-  border-radius: 5px;
-  font-size: 17px;
-}
-#easy-text {
-  font-size: 15px;
+  background: radial-gradient(circle, var(--white) 0%, var(--neongreen) 100%);
 }
 #medium-btn {
-  background-color: gold;
-  position: relative;
-  left: 175px;
-  top: 75px;
-  height: 50px;
-  width: 80px;
-  border-radius: 5px;
-  font-size: 17px;
+  background: radial-gradient(circle, var(--white) 0%, var(--neonyellow) 100%);
 }
-#medium-text {
-  font-size: 15px;
-}
+
 #hard-btn {
-  background-color: red;
-  position: relative;
-  left: 175px;
-  top: 75px;
-  height: 50px;
-  width: 80px;
-  border-radius: 5px;
-  font-size: 17px;
+  background: radial-gradient(circle, var(--white) 0%, #ff0303 100%);
 }
-#hard-text {
-  font-size: 15px;
-}
+
 /* SECTION: Questions Pages*/
 
 .trivia-body {
@@ -266,20 +235,7 @@ a {
 }
 
 /* SECTION: High Scores */
-.homepage-link {
-  color: var(--neonpurp);
-}
 
-.homepage-link:hover {
-  color: var(--neonturq);
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 10px 0px;
-  color: var(--neonpurp);
-}
 .main-container ul li {
   list-style: none;
   padding-top: 10px;
