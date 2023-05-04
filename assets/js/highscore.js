@@ -34,7 +34,7 @@ function displayHighScores() {
     return;
   }
   // NOTES: Create list element and append to main
-  let highScoreList = document.createElement("ul");
+  let highScoreList = document.createElement("ol");
   highScoreContainer.appendChild(highScoreList);
   // NOTES: create list item for each hs
   // let userScore = getUserScore();
